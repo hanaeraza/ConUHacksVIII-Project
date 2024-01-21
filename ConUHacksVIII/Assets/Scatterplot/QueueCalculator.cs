@@ -23,6 +23,8 @@ public class QueueCalculator : MonoBehaviour
     public string regionColName;
     public string rankColName;
 
+    public string city; 
+
     void Start()
     {
         // Read from CSV data and input into List
@@ -39,30 +41,30 @@ public class QueueCalculator : MonoBehaviour
         rankColName = columnList[rankColumn];
 
         // Pick random player row
-        int randPlayer = Random.Range(0, pointList.Count); 
-        Debug.Log("Random player row: " + randPlayer); 
+        int randPlayer = Random.Range(0, pointList.Count);
+        Debug.Log("Random player row: " + randPlayer);
 
         Debug.Log("Player " + randPlayer + " Data: " + pointList[randPlayer][timeColName] + " - "
          + pointList[randPlayer][dayColName] + " - "
          + pointList[randPlayer][roleColName] + " - "
          + pointList[randPlayer][partyColName] + " - "
          + pointList[randPlayer][regionColName] + " - "
-         + pointList[randPlayer][rankColName]  );
+         + pointList[randPlayer][rankColName]);
 
         string timeData = pointList[randPlayer][timeColName].ToString();
         string dayData = pointList[randPlayer][dayColName].ToString();
         string roleData = pointList[randPlayer][roleColName].ToString();
         int partyData = int.Parse(pointList[randPlayer][partyColName].ToString());
         string regionData = pointList[randPlayer][regionColName].ToString();
-        int rankData =  int.Parse(pointList[randPlayer][rankColName].ToString());
-        
+        int rankData = int.Parse(pointList[randPlayer][rankColName].ToString());
+
 
 
 
         // timeVar calculation 
         string[] daysOfWeek = new string[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
-        
+
         int dayPoint = 0;
 
         switch (dayData)
@@ -99,8 +101,6 @@ public class QueueCalculator : MonoBehaviour
                 break;
 
         }
-
-
 
         int hourPoint = 0;
         string timeStart = "12:53:35";
@@ -215,12 +215,53 @@ public class QueueCalculator : MonoBehaviour
 
         float timeVar = dayPoint * hourPoint;
 
+
+        switch (regionData)
+        {
+
+            case "us-west-2":
+                city = "Oregon";
+                break;
+
+            case "ap-northeast-1":
+                city = "Tokyo";
+                break;
+
+            case "ap-southeast-2":
+                city = "Sydney";
+                break;
+
+            case "ap-southeast-1":
+                city = "Singapore";
+                break;
+
+            case "us-east-1":
+                city = "Virginia";
+                break;
+
+            case "eu-west-2":
+                city = "London";
+                break;
+
+            case "eu-central-1":
+                city = "Frankfurt";
+                break;
+
+            case "sa-east-1":
+                city = "Sao Paulo";
+                break;
+
+            default:
+                break;
+
+        }
+
         platformDictionary["Tokyo"] = "C";
         platformDictionary["Frankfurt"] = "C";
         platformDictionary["London"] = "C";
         platformDictionary["Singapore"] = "PC";
-        platformDictionary["Sao Paolo"] = "PC";
-        platformDictionary["Australia"] = "B";
+        platformDictionary["Sao Paulo"] = "PC";
+        platformDictionary["Sydney"] = "B";
         platformDictionary["North Virginia"] = "B";
         platformDictionary["Oregon"] = "B";
 
@@ -229,22 +270,24 @@ public class QueueCalculator : MonoBehaviour
         partyDictionary["Frankfurt"] = 0.8f;
         partyDictionary["London"] = 0.65f;
         partyDictionary["Singapore"] = 0.6f;
-        partyDictionary["Sao Paolo"] = 0.15f;
-        partyDictionary["Australia"] = 0.1f;
+        partyDictionary["Sao Paulo"] = 0.15f;
+        partyDictionary["Sydney"] = 0.1f;
         partyDictionary["North Virginia"] = 0.55f;
         partyDictionary["Oregon"] = 0.4f;
 
-        float platformVar = PlatformTime(roleData, "Tokyo");
-        float partyVar = PartyTime(roleData, partyData, "Tokyo");
+        Debug.Log("City: " + city);
+
+        float platformVar = PlatformTime(roleData, city);
+        float partyVar = PartyTime(roleData, partyData, city);
         float rankVar = Ranker(rankData);
 
         //Queue duration estimation
-        print(platformVar);
-        print(partyVar);
-        print(rankVar);
-        print(timeVar);
+        Debug.Log("Platform Score: " + platformVar);
+        Debug.Log("Party Score: " + partyVar);
+        Debug.Log("Rank Score: " + rankVar);
+        Debug.Log("Time Score: " + timeVar);
         float estimatedQueue = timeVar + (timeVar / 6) * platformVar + (timeVar / 2) * partyVar + (timeVar / 4) * rankVar;
-        Debug.Log(estimatedQueue);
+        Debug.Log("Estimated Queue Time: " + estimatedQueue);
     }
 
     Dictionary<string, string> platformDictionary = new Dictionary<string, string>();

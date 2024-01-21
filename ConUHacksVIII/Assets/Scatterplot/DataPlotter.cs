@@ -32,10 +32,10 @@ public class DataPlotter : MonoBehaviour
 
         List<string> columnList = new List<string>(pointList[1].Keys);
 
-        Debug.Log("There are " + columnList.Count + " columns in CSV");
+        //Debug.Log("There are " + columnList.Count + " columns in CSV");
 
-        foreach (string key in columnList)
-            Debug.Log("Column: " + key);
+        //foreach (string key in columnList)
+            //Debug.Log("Column: " + key);
 
 
         xName = columnList[columnX];
