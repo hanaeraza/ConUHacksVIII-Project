@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638413975077936009
+      ticks: 638414433980040217
     m_Hash: 1118742995
   m_LockFileStatus:
     m_FilePath: C:/Users/eraza/Downloads/ConUHacksVIII-Project/ConUHacksVIII/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638413975077945991
+      ticks: 638414433980060289
     m_Hash: 2500813243
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -413,9 +413,11 @@ m_ResolvedPackages:
     - 1.6.3
     - 1.7.0
     - 1.8.0-pre.1
+    - 1.8.0-pre.2
     compatible:
     - 1.7.0
     - 1.8.0-pre.1
+    - 1.8.0-pre.2
     recommended: 1.7.0
     deprecated: []
   dependencies:
@@ -524,9 +526,11 @@ m_ResolvedPackages:
     - 3.2.1
     - 3.2.2
     - 3.3.0
+    - 3.4.0
     compatible:
     - 3.2.2
     - 3.3.0
+    - 3.4.0
     recommended: 3.2.2
     deprecated: []
   dependencies:
@@ -681,25 +685,29 @@ m_ResolvedPackages:
     - 3.0.4
     - 3.0.5
     - 3.0.6
+    - 3.0.7
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
     - 3.2.0-pre.4
     - 3.2.0-pre.5
     - 3.2.0-pre.6
+    - 3.2.0-pre.7
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
     - 3.0.6
+    - 3.0.7
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
     - 3.2.0-pre.4
     - 3.2.0-pre.5
     - 3.2.0-pre.6
+    - 3.2.0-pre.7
     - 4.0.0-pre.1
     - 4.0.0-pre.2
-    recommended: 3.0.6
+    recommended: 3.0.7
     deprecated: []
   dependencies:
   - name: com.unity.ugui
@@ -3134,11 +3142,13 @@ m_ResolvedPackages:
     - 3.0.24
     - 3.0.25
     - 3.0.26
+    - 3.0.27
     compatible:
     - 3.0.24
     - 3.0.25
     - 3.0.26
-    recommended: 3.0.26
+    - 3.0.27
+    recommended: 3.0.27
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
@@ -3441,6 +3451,9 @@ m_ResolvedPackages:
     - 1.3.8
     - 1.3.9
     - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3457,6 +3470,9 @@ m_ResolvedPackages:
     - 1.3.8
     - 1.3.9
     - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3559,9 +3575,11 @@ m_ResolvedPackages:
     - 1.2.2
     - 1.2.3
     - 1.2.4
+    - 1.2.5
     compatible:
     - 1.2.4
-    recommended: 1.2.4
+    - 1.2.5
+    recommended: 1.2.5
     deprecated: []
   dependencies:
   - name: com.unity.test-framework
@@ -3755,10 +3773,16 @@ m_ResolvedPackages:
     - 1.8.7
     - 1.8.8
     - 1.8.9
+    - 1.8.10
+    - 1.8.11
+    - 1.8.12
     compatible:
     - 1.8.8
     - 1.8.9
-    recommended: 1.8.9
+    - 1.8.10
+    - 1.8.11
+    - 1.8.12
+    recommended: 1.8.12
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
@@ -3965,9 +3989,11 @@ m_ResolvedPackages:
     - 1.2.5
     - 1.2.6
     - 1.3.1
+    - 1.3.2
     compatible:
     - 1.2.6
     - 1.3.1
+    - 1.3.2
     recommended: 1.2.6
     deprecated: []
   dependencies: []

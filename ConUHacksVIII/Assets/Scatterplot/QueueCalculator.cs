@@ -49,15 +49,20 @@ public class QueueCalculator : MonoBehaviour
          + pointList[randPlayer][regionColName] + " - "
          + pointList[randPlayer][rankColName]  );
 
-
-
+        string timeData = pointList[randPlayer][timeColName].ToString();
+        string dayData = pointList[randPlayer][dayColName].ToString();
+        string roleData = pointList[randPlayer][roleColName].ToString();
+        int partyData = int.Parse(pointList[randPlayer][partyColName].ToString());
+        string regionData = pointList[randPlayer][regionColName].ToString();
+        int rankData =  int.Parse(pointList[randPlayer][rankColName].ToString());
+        
 
 
 
         // timeVar calculation 
         string[] daysOfWeek = new string[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
-        string dayData = "Mon";
+        
         int dayPoint = 0;
 
         switch (dayData)
@@ -229,9 +234,9 @@ public class QueueCalculator : MonoBehaviour
         partyDictionary["North Virginia"] = 0.55f;
         partyDictionary["Oregon"] = 0.4f;
 
-        float platformVar = PlatformTime("Survivor", "Tokyo");
-        float partyVar = PartyTime("Survivor", 2, "Tokyo");
-        float rankVar = Ranker(8);
+        float platformVar = PlatformTime(roleData, "Tokyo");
+        float partyVar = PartyTime(roleData, partyData, "Tokyo");
+        float rankVar = Ranker(rankData);
 
         //Queue duration estimation
         print(platformVar);
